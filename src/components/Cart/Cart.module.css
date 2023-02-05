@@ -1,0 +1,16 @@
+.total-div{
+    display: flex;
+    gap:25rem;
+}
+
+.button-div button{
+height: 2rem;
+width: 4rem;
+margin-left: 0.5rem;
+
+}
+
+.total-price{
+    font-weight: bold;
+    font-size: 1.5rem;
+}

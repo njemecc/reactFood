@@ -1,0 +1,54 @@
+.meal-div{
+    display: flex;
+    gap: 65rem;
+    background-color:white;
+    border-bottom: 1px solid black;
+}
+
+.meal-about-div{
+    margin-left: 5rem;
+}
+
+.meal-name{
+    font-weight: bold;
+    font-size: 1.2rem;
+
+}
+
+.meal-price{
+color: brown;
+font-size: 1.1rem;
+font-weight: bold;
+}
+
+.meal-desc{
+font-size: 1rem;
+}
+
+
+.meal-add-div div {
+display: flex;
+}
+
+.meal-add-div input {
+    width: 2rem;
+    height: 2rem;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    }
+
+.meal-amount{
+    font-weight: bold;
+}
+
+.btn-add{
+    background-color: brown;
+    color: white;
+    height: 2rem;
+    width: 3.1rem;
+    font-size: 0.7rem;
+}
+
+.meal-add-div{
+    padding: 0 5rem;
+}

@@ -1,0 +1,35 @@
+.header-wrapper{
+    display: flex;
+    gap: 60rem;
+    background-color:maroon;
+}
+
+.header-naslov-div{
+    margin-left: 8rem;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.header-cart-button{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    width: 12rem;
+    background-color: brown;
+    color: white;
+    font-size:18px;
+    border-radius: 20px;
+    height: 3.4rem;
+    margin-top: 1rem;
+}
+
+.header-cart-button:hover{
+    cursor: pointer;
+
+}
+
+.header-img-div img{
+    max-height: 680px !important;
+    width: 100%;
+}

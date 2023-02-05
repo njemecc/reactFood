@@ -1,0 +1,46 @@
+.cart-item-div{
+    display: flex;
+    position: relative;
+    border-bottom: 2px solid orange;
+}
+
+
+.cart-add-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 30rem;
+    top: 4.5rem;
+    
+}
+
+button{
+    background-color: brown;
+    color: white;
+
+}
+
+.cart-add-div button{
+    height: 2rem;
+    width: 2rem;
+    font-size: 1.4rem;
+    margin-left: 0.4rem;
+    cursor: pointer;
+}
+
+.cart-div-name-and-price{
+    display: flex;
+    gap: 5rem;
+}
+
+.cart-item-price{
+    font-weight: bold;
+    color: brown;
+    font-size: 1.2rem;
+}
+
+.cart-item-name{
+    font-weight: bold;
+    font-size: 1.4rem;
+}
