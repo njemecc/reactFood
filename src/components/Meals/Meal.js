@@ -1,34 +1,59 @@
-import React from 'react'
-import styles from './Meal.module.css'
-import { CartContext } from '../../contexts/CartContext'
+import React, { useState } from "react";
+import styles from "./Meal.module.css";
+import { CartContext } from "../../contexts/CartContext";
 //hooks
-import { useContext } from 'react'
+import { useContext, useRef } from "react";
 
 const Meal = (props) => {
+  const ctxCart = useContext(CartContext);
+  const { addItemToCart } = ctxCart;
+  const { sumTotal } = ctxCart;
 
-  const ctxCart = useContext(CartContext)
+  const amountRef = useRef();
 
-  console.log(ctxCart)
-  
+  const [amountRefValueState, setAmountRefValueState] = useState(1);
+
+  const updateRefHandler = (e) => {
+    setAmountRefValueState(e.target.value);
+  };
+
+  const plusClickHandler = () => {
+    addItemToCart({
+      name: props.name,
+      price: props.price,
+      amount: amountRefValueState,
+      id: Math.round(Math.random() * 1000),
+    });
+  };
 
   return (
-    <div key={props.id} className={styles['meal-div']}>
-        <div  className={styles['meal-about-div']}>
-            <p className={styles['meal-name']}>{props.name}</p>
-            <p className={styles['meal-desc']}>{props.desc}</p>
-            <p className={styles['meal-price']}>{props.price}$</p>
-
+    <div key={props.id} className={styles["meal-div"]}>
+      <div className={styles["meal-about-div"]}>
+        <p className={styles["meal-name"]}>{props.name}</p>
+        <p className={styles["meal-desc"]}>{props.desc}</p>
+        <p className={styles["meal-price"]}>{props.price}$</p>
+      </div>
+      <div className={styles["meal-add-div"]}>
+        <div>
+          <p className={styles["meal-amount"]}>Amount</p>
+          <input
+            onChange={updateRefHandler}
+            ref={amountRef}
+            min="1"
+            max="5"
+            type="number"
+          />
         </div>
-        <div  className={styles['meal-add-div']}>
-            <div>
-            <p className={styles['meal-amount']}>Amount</p>
-            <input min="1" max="5" type="number" />
-            </div>
-            <button type='Button'>+ Add</button>
-         
-        </div>
+        <button
+          onClick={plusClickHandler}
+          className={styles["btn-add"]}
+          type="Button"
+        >
+          + Add
+        </button>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Meal
+export default Meal;

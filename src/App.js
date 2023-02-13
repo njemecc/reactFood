@@ -1,32 +1,38 @@
-import Header from './components/Layout/Header'
-import React from 'react'
-import Meals from './components/Meals/Meals'
-import Cart from './components/Cart/Cart'
-import { CartContextProvider } from './contexts/CartContext'
-
+import Header from "./components/Layout/Header";
+import React from "react";
+import Meals from "./components/Meals/Meals";
+import Cart from "./components/Cart/Cart";
+import { CartContext } from "./contexts/CartContext";
+import { CartContextProvider } from "./contexts/CartProvider";
 //hooks
-import { useState } from 'react'
-const App = () => {
+import { useState, useContext } from "react";
 
-  const [cartVisible,setCartVisible] = useState(false)
-  
-  const showCart = () =>{
+const App = () => {
+  const [cartVisible, setCartVisible] = useState(false);
+
+  const ctxCart = useContext(CartContext);
+
+  const [totalAmount, setTotalAmount] = useState(ctxCart.totalAmount);
+
+  const showCart = () => {
     setCartVisible(true);
-  }
+
+    setTotalAmount(Number(ctxCart.totalAmount) + 1);
+  };
 
   const hideCart = () => {
-    setCartVisible(false)
-  }
-
+    setCartVisible(false);
+  };
 
   return (
     <CartContextProvider>
-    <Header clickHandler={showCart}/>
-    <Meals/>
-   { cartVisible ? <Cart clickHandler={hideCart} /> : null }
-   </CartContextProvider>
-  ) 
+      <Header clickHandler={showCart} />
+      <Meals />
+      {cartVisible ? (
+        <Cart totalAmount={totalAmount} clickHandler={hideCart} />
+      ) : null}
+    </CartContextProvider>
+  );
+};
 
-}
-
-export default App
+export default App;
